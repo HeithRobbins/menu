@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="Styles.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="heading-wrapper">
+            <h1>Menu</h1>
+            <div id="clock"></div>
+        </div>
+
+        <div id="dialogoverlay"></div>
+        <div id="dialogbox">
+            <div>
+                <div id="dialogboxhead"></div>
+                <div id="dialogboxbody"></div>
+                <div id="dialogboxfoot"></div>
+            </div>
+        </div>
+        
+        <div class="menu-links">
+            <div class="menu-link">
+                <div class="dropdown">
+                    <img id="test" src="T-bone.jpg" style="display:none;" />
+                    <button id ="20" onclick="picture()">"T-bone Steak"</button>
+                    <div class="dropdown-content">
+                        <p>We have a 12oz Pan seard T-bone steak
+                        top with a red wine blue cheese sauce</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-link">
+                <div class="dropdown">
+                    <img id="test2" src="elk.jpg" style="display:none;" />
+                <button id="21" onclick="pictureTwo()">"Elk-Burger"</button>
+                    <div class="dropdown-content">
+                        <p>We have a 1/2Lb Elk Burger with fresh mozzerella, and a sweet balsamic glaze</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-link">
+                <div class="dropdown">
+                <img id="test3" src="salad.jpg" style="display:none;" />
+                <button id="22" onclick="pictureThree()">"Gourmet Strawberry Chicken Avocado Salad"</button>
+                    <div class="dropdown-content">
+                        <p>Chicken Salad with Strawberries, Mixed Greens, Crumbled Goat Cheese, Chopped Avocado and sliced almonds,
+                        topped with a healthy balsamic vinaigrette.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    
+</body>
+<script>
+
+
+    function CustomAlert() {
+        this.render = function(dialog){
+            let winW = window.innerWidth
+            let winH = window.innerHeight
+            let dialogoverlay = document.getElementById('dialogoverlay')
+            let dialogbox = document.getElementById('dialogbox')
+            dialogoverlay.style.display = "block";
+            dialogoverlay.style.height = winH+"px";
+            dialogbox.style.left= (winW/2) - (550 * .5)+"px"
+            dialogbox.style.top ="100px"
+            dialogbox.style.display = "block"
+            document.getElementById('dialogboxhead').innerHTML = "Acknowledge This Message"
+            document.getElementById('dialogboxbody').innerHTML = dialog
+            document.getElementById('dialogboxfoot').innerHTML ='<button onclick="Alert.ok()">OK</button>'
+        }
+        this.ok = function() {
+            document.getElementById('dialogbox').style.display = "none"
+            document.getElementById('dialogoverlay').style.display = "none"
+        }
+    }
+    let Alert = new CustomAlert()
+
+    Alert.render('Welcome please place your order with Jack.')
+    
+    document.getElementById("20").addEventListener("mouseover", mouseOver);
+    document.getElementById("20").addEventListener("mouseout", mouseOut);
+    document.getElementById("21").addEventListener("mouseover", mouseOver);
+    document.getElementById("21").addEventListener("mouseout", mouseOut);
+    document.getElementById("22").addEventListener("mouseover", mouseOver);
+    document.getElementById("22").addEventListener("mouseout", mouseOut);
+
+    function mouseOver() {
+        document.getElementById("20").style.color = "red";
+        document.getElementById("21").style.color = "#78827D";
+        document.getElementById("22").style.color = "#015307";
+        
+    }
+
+    function mouseOut() {
+        document.getElementById("20").style.color = "black";
+        document.getElementById("21").style.color = "black";
+        document.getElementById("22").style.color = "black";
+        
+    }
+
+    function picture() {
+        var pic = "T-bone.jpg"
+        document.getElementById('test').src = pic.replace('90x90', '225x225');
+        document.getElementById('test').style.display = 'block';
+
+    }
+
+    function pictureTwo() {
+        var picTwo = "elk.jpg"
+        document.getElementById('test2').src = picTwo.replace('90x90', '225x225');
+        document.getElementById('test2').style.display = 'block';
+
+    }
+
+    function pictureThree() {
+        var picThree = "salad.jpg"
+        document.getElementById('test3').src = picThree.replace('90x90', '225x225');
+        document.getElementById('test3').style.display = 'block';
+
+    }
+    
+    // this all work but i still working on it 
+
+//    function greeting() {
+//         alert(`Hello my name is Jack, an i will be your sever today!`)
+//         alert(`The Chef Specials are:\n we have a 1/2Lb Elk Burger with fresh mozzerella, and a sweet balsamic glaze \n We have a 12oz Pan seard T-bone steak top with a red wine blue cheese sauce \n `)
+
+//     }
+//     greeting()
+
+//     function ready() {
+//         ready = prompt(`Would you like Hamburger or The Tbone`);
+//         if (ready === "Hamburger") {
+//             alert(`Good choice`)
+//             prompt(`Would you like Fries with Truffle oil Or Beer batter Onion Rings`)
+//             prompt(`You also get choice Soup or Salad`)
+//             alert(`Your total is $36`)
+//         } else if (ready === "Tbone") {
+//             alert(`That one of my Favorite`)
+//             prompt(`Would you like Loaded Bake potato Or rosted lemon garlic asparagus`)
+//             prompt(`You also get choice Soup or Salad`)
+//             alert(`Your total is $43`)
+//         }
+//     }
+
+
+//     ready()
+
+
+</script>
+
+</html>
